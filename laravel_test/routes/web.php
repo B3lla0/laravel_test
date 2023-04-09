@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', [WelcomeController::class, 'index']);
+// Route::get('/', function () {
+    // return view('welcome');
+    // return 'Hello, laravel~~!';
+// );
+Route::get('create-greeting', function() {
+    $greeting = new Greeting();
+    $greeting->bodiy = "Hello, World !!";
+    $greeting->save();
+});
+
+Route::get('first-greeting', function() {
+    return Greeting::first()->body;
 });
