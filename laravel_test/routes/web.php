@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
+use App\Models\Greeting;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ use App\Http\Controllers\WelcomeController;
 // );
 Route::get('create-greeting', function() {
     $greeting = new Greeting();
-    $greeting->bodiy = "Hello, World !!";
+    $greeting->body = "Hello, World !!";
     $greeting->save();
 });
 
